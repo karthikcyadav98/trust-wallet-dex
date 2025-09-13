@@ -3,7 +3,7 @@
  * Production-ready component for Trust Wallet integration with comprehensive error handling
  */
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { useWallet } from "../contexts/WalletContext";
 import { TrustWalletConnectProps } from "../types/wallet";
 import {
@@ -52,6 +52,15 @@ const TrustWalletConnect: React.FC<TrustWalletConnectProps> = ({
     return () => clearInterval(interval);
   }, [walletState.isConnected, disconnectWallet]);
 
+  // Connect wallet handler
+  const handleConnect = useCallback(async (): Promise<void> => {
+    try {
+      await connectWallet();
+    } catch (error: any) {
+      console.error("Failed to connect wallet:", error);
+    }
+  }, [connectWallet]);
+
   // Auto-connect if requested and Trust Wallet is available
   useEffect(() => {
     if (
@@ -67,6 +76,7 @@ const TrustWalletConnect: React.FC<TrustWalletConnectProps> = ({
     isInstalled,
     walletState.isConnected,
     walletState.isLoading,
+    handleConnect
   ]);
 
   // Handle successful connection
@@ -89,15 +99,6 @@ const TrustWalletConnect: React.FC<TrustWalletConnectProps> = ({
       onError(walletState.error);
     }
   }, [walletState.error, onError]);
-
-  // Connect wallet handler
-  const handleConnect = async (): Promise<void> => {
-    try {
-      await connectWallet();
-    } catch (error: any) {
-      console.error("Failed to connect wallet:", error);
-    }
-  };
 
   // Disconnect wallet handler
   const handleDisconnect = (): void => {

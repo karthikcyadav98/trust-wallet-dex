@@ -2,7 +2,6 @@ import React from 'react';
 import './App.css';
 import { WalletProvider } from './contexts/WalletContext';
 import TrustWalletConnect from './components/TrustWalletConnect';
-import ActivityLog from './components/ActivityLog';
 
 function App() {
   const handleConnect = (account: string) => {

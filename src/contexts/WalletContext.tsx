@@ -5,10 +5,7 @@
 import React, { createContext, useContext, useReducer, useEffect, useCallback } from 'react';
 import {
   WalletState,
-  WalletContextType,
-  TrustWalletProvider,
-  AccountChangeEvent,
-  ChainChangeEvent
+  WalletContextType
 } from '../types/wallet';
 import {
   isTrustWalletAvailable,
