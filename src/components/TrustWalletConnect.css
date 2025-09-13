@@ -1,0 +1,342 @@
+/**
+ * TrustWalletConnect Component Styles
+ * Modern, responsive styling for Trust Wallet integration
+ */
+
+/* Base component styling */
+.trust-wallet-connect,
+.trust-wallet-connected,
+.trust-wallet-not-installed,
+.trust-wallet-loading,
+.trust-wallet-error {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  background: #ffffff;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+}
+
+/* Connect button styling */
+.connect-button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 16px 24px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.connect-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 15px rgba(102, 126, 234, 0.4);
+}
+
+.connect-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.trust-wallet-logo {
+  font-size: 24px;
+}
+
+/* Connected wallet styling */
+.wallet-info {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.wallet-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.wallet-icon {
+  font-size: 24px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f7fafc;
+  border-radius: 50%;
+}
+
+.wallet-details {
+  flex: 1;
+}
+
+.wallet-address {
+  font-size: 16px;
+  font-weight: 600;
+  color: #2d3748;
+  font-family: 'Monaco', 'Menlo', monospace;
+}
+
+.wallet-network {
+  font-size: 14px;
+  color: #718096;
+  margin-top: 2px;
+}
+
+/* Balance styling */
+.wallet-balance {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px;
+  background: #f7fafc;
+  border-radius: 8px;
+}
+
+.balance-label {
+  font-size: 14px;
+  color: #718096;
+}
+
+.balance-amount {
+  font-size: 16px;
+  font-weight: 600;
+  color: #2d3748;
+  flex: 1;
+  font-family: 'Monaco', 'Menlo', monospace;
+}
+
+.refresh-button {
+  padding: 4px 8px;
+  background: transparent;
+  border: 1px solid #e2e8f0;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.refresh-button:hover {
+  background: #edf2f7;
+}
+
+.refresh-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Wallet actions */
+.wallet-actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.network-switcher {
+  flex: 1;
+}
+
+.network-select {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  background: white;
+  font-size: 14px;
+  color: #2d3748;
+  cursor: pointer;
+}
+
+.network-select:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.disconnect-button {
+  padding: 8px 16px;
+  background: #fed7d7;
+  color: #c53030;
+  border: 1px solid #feb2b2;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.disconnect-button:hover {
+  background: #feb2b2;
+}
+
+/* Not installed state */
+.trust-wallet-not-installed {
+  text-align: center;
+}
+
+.trust-wallet-not-installed h3 {
+  margin: 16px 0 8px 0;
+  color: #2d3748;
+  font-size: 20px;
+}
+
+.trust-wallet-not-installed p {
+  color: #718096;
+  margin: 8px 0;
+  line-height: 1.5;
+}
+
+.install-button {
+  display: inline-block;
+  margin: 16px 0;
+  padding: 12px 24px;
+  background: #3182ce;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.install-button:hover {
+  background: #2c5282;
+  transform: translateY(-2px);
+}
+
+.install-help {
+  font-size: 12px !important;
+  color: #a0aec0 !important;
+}
+
+/* Loading state */
+.trust-wallet-loading {
+  text-align: center;
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  margin: 0 auto 16px;
+  border: 4px solid #e2e8f0;
+  border-top: 4px solid #667eea;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.trust-wallet-loading p {
+  color: #718096;
+  margin: 8px 0;
+}
+
+.loading-help {
+  font-size: 14px !important;
+  color: #a0aec0 !important;
+}
+
+/* Error state */
+.trust-wallet-error {
+  text-align: center;
+  border-color: #feb2b2 !important;
+  background: #fff5f5 !important;
+}
+
+.error-icon {
+  font-size: 32px;
+  margin-bottom: 12px;
+}
+
+.error-message {
+  color: #c53030;
+  margin: 12px 0;
+  font-weight: 500;
+}
+
+.retry-button {
+  padding: 10px 20px;
+  background: #e53e3e;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.retry-button:hover {
+  background: #c53030;
+}
+
+/* Responsive design */
+@media (max-width: 480px) {
+  .trust-wallet-connect,
+  .trust-wallet-connected,
+  .trust-wallet-not-installed,
+  .trust-wallet-loading,
+  .trust-wallet-error {
+    max-width: 100%;
+    margin: 0;
+    padding: 16px;
+  }
+  
+  .wallet-actions {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .network-switcher {
+    width: 100%;
+  }
+  
+  .disconnect-button {
+    width: 100%;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .trust-wallet-connect,
+  .trust-wallet-connected,
+  .trust-wallet-not-installed,
+  .trust-wallet-loading {
+    background: #2d3748;
+    border-color: #4a5568;
+    color: #e2e8f0;
+  }
+  
+  .wallet-address {
+    color: #e2e8f0;
+  }
+  
+  .wallet-balance {
+    background: #4a5568;
+  }
+  
+  .network-select {
+    background: #4a5568;
+    border-color: #718096;
+    color: #e2e8f0;
+  }
+  
+  .refresh-button {
+    border-color: #718096;
+  }
+  
+  .refresh-button:hover {
+    background: #718096;
+  }
+}
